@@ -1,0 +1,25 @@
+# Environments (Wajib di-ignore agar venv tidak ikut ke push)
+venv/
+env/
+ENV/
+
+# Model Files (File pkl terlalu besar untuk Git)
+*.pkl
+model_house_price.pkl
+
+# Dataset (File CSV dataset sebaiknya tidak masuk Git)
+*.csv
+train.csv
+test.csv
+sample_submission.csv
+
+# Python Cache
+__pycache__/
+*.py[cod]
+
+# Jupyter Notebook Checkpoints
+.ipynb_checkpoints/
+
+# System Files
+.DS_Store
+Thumbs.db
