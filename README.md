@@ -1,61 +1,43 @@
+# 🏡 House Prices Prediction & Streamlit Portfolio
 
-![kaggle-image](https://storage.googleapis.com/kaggle-competitions/kaggle/5407/media/housesbanner.png)
+Aplikasi web interaktif yang dikembangkan menggunakan **Streamlit** untuk menampilkan portofolio profesional *Data Science*, visualisasi data/model, serta pipeline inferensi machine learning secara *end-to-end* untuk prediksi harga rumah (menggunakan dataset Kaggle *House Prices - Advanced Regression Techniques*).
 
+---
 
-**EDA and Data tidying:**
+## 📌 Deskripsi Proyek
 
-1. Removing columns that contain the same value in 100% ["Street", "Utilities"]
-2. Removing outliers : GrLivArea more than 4500.
-3. Improving values like Year more than 2017.
-4. Handling missing numerical values:
-  + LotFrontage according to median in specific Neighborhood
-  + With constant = 0 for :
-['BsmtFinSF1', 'BsmtFinSF2', 'BsmtFullBath', 'BsmtHalfBath', "MasVnrArea"]
-  + The rest of numerical columns (apart from point 5) with median.
-5. Transformation of some numerical features that are actually categorical:
-['MSSubClass', 'OverallCond’]
-6. Handling missing categorical values. (specific for each feature)
-7. Transformation of skewed features:
-  + SalePrice – log transformation
-  + Other features with skeweness > 0.5 using BoxCox transformation
-  + Transformation some categorical features (with specific order) into numerical
+Assignment ini berfokus pada implementasi praktik MLOps siap produksi. Aplikasi ini mencakup:
+1. **Portofolio Interaktif:** Branding diri, profil profesional, latar belakang, serta daftar proyek *Machine Learning* yang pernah dikerjakan.
+2. **Visualisasi Data & Model:** Analisis eksplorasi data (EDA) interaktif dan evaluasi performa model machine learning (RMSE, MAE, R² Score, serta grafik *Actual vs Predicted*).
+3. **Pipeline Inferensi (Prediksi):** Fitur unggah file dataset tes (`.csv`), pemicu pipeline prediksi otomatis, dan opsi pengunduhan hasil prediksi.
 
-**Feature Engineering:**
+---
 
-1. Feature Isgarage defined according to feature GarageArea (1 – if more than 0)
-2. Feature Isfireplace defined according to feature Fireplaces (if more than 0)
-3. Feature Ispool defined according to feature PoolArea (if more than 0)
-4. Feature Issecondfloor defined according to feature 2ndFlrSF (if more than 0)
-5. Feature IsOpenPorch defined according to feature OpenPorchSF (if more than 0)
-6. Feature IsWoodDeck defined according to feature WoodDeckSF (if more than 0)
-7. Feature TotalSqrtFeet defined as sum of GrLivArea and TotalBsmtSF
-8. Feature TotalBaths defined as BsmtFullBath + FullBath + BsmtHalfBath/2 + HalfBath/2.
-9. Feature Neighborhood (transformation into 0, 1, 2) according to statistics if specific Neighborhood is rather rich/poor or between them.
-10. One-Hot Encoding for categorical data
+## ✨ Fitur Utama
 
-**Modelization:**
+- **Navigasi Halaman:** Berpindah antar modul aplikasi dengan mudah melalui *sidebar*.
+- **Opsi Interaktif:** Pilihan model machine learning secara dinamis untuk melihat metrik dan grafik performa.
+- **Prediksi Otomatis:** Memuat model terpilih (`.pkl`) untuk memprediksi file CSV input secara langsung.
+- **Ekspor Hasil:** Mengunduh hasil prediksi dalam format `.csv`.
 
-Scaling - RobustScaler
-1. Linear Regression
-2. LASSO model selection
-3. GradientBoostingRegressor
-4. XGBRegressor
-5. ElasticNet
-6. LGBMRegressor
-7. BaggingRegressor
+---
 
-**Training:**
-1. StackingCVRegressor on models: [Lasso, ElasticNet, XGB, LGBM]
-2. Weighted predictions 0.2*ElasticNet + 0.25*lasso + 0.15*LGBM + 0.4*StackedModels
+## 🛠️ Teknologi & Tools
 
-## Environment specification:
+- **Bahasa Pemrograman:** Python
+- **Framework Web:** Streamlit
+- **Data Manipulation & Visualisasi:** Pandas, NumPy, Matplotlib, Seaborn
+- **Machine Learning:** Scikit-Learn, Joblib
+- **Version Control:** Git & GitHub
 
-* python 3.6.4
-* numpy 1.14.2
-* scipy 1.1.0rc1
-* seaborn 0.9.0
-* sklearn 0.20.1
-* pandas 0.22.0
-* sklearn 0.20.1
-* xgboost 0.72
-* lightgbm 2.2.2
+---
+
+## 📁 Struktur Direktori
+
+```text
+.
+├── app.py                   # Script utama aplikasi Streamlit
+├── model_house_price.pkl    # File model machine learning yang sudah dilatih
+├── requirements.txt         # Daftar pustaka/library Python yang dibutuhkan
+├── .gitignore               # File penentu daftar berkas yang diabaikan Git
+└── README.md                # Dokumentasi proyek
